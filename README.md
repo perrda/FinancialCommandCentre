@@ -4,6 +4,14 @@
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![PWA](https://img.shields.io/badge/PWA-ready-green)
 
+> **🚧 v8 Modular Rebuild In Progress**
+>
+> v7.60 (described below) is the current live product. A modular rebuild on
+> Vue 3 + TypeScript is underway on the `v8-foundation` branch. See:
+> - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — v8 architecture & migration plan
+> - [`docs/v7-architecture.md`](docs/v7-architecture.md) — v7.60 architecture (current live)
+> - [`INSTALL.md`](INSTALL.md) — v8 developer setup
+
 A comprehensive Progressive Web App (PWA) for personal finance tracking, portfolio management, and wealth analysis.
 
 ![FCC Screenshot](docs/screenshot.png)
@@ -89,7 +97,8 @@ Upload all files to any static hosting service:
 ├── /assets
 │   └── (icons, images)
 ├── /docs
-│   └── ARCHITECTURE.md # Technical documentation
+│   ├── ARCHITECTURE.md     # v8 architecture (forward-looking)
+│   └── v7-architecture.md  # v7.60 architecture (current live)
 └── /data
     └── sample-portfolio.json
 ```
@@ -178,4 +187,3 @@ MIT License - see [LICENSE](LICENSE) for details.
 ---
 
 **Made with ❤️ by David Perry**
-

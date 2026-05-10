@@ -1,0 +1,73 @@
+/*
+ * FCC v8 global styles — minimal foundation.
+ * Phase 2 will introduce the full design token system.
+ */
+
+:root {
+  /* Brand */
+  --fcc-orange: #ff8c42;
+  --fcc-orange-dim: #cc6f34;
+
+  /* Surface */
+  --bg-primary: #0a0a0a;
+  --bg-card: #111111;
+  --bg-secondary: #0a0a0a;
+  --border: #2a2a2a;
+  --border-subtle: #1a1a1a;
+
+  /* Text */
+  --text-primary: #f5f5f5;
+  --text-secondary: #aaaaaa;
+  --text-muted: #888888;
+  --text-dim: #666666;
+
+  /* Semantic */
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warn: #f59e0b;
+  --color-info: #3b82f6;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+  /* iOS safe areas — preserved from v7.47 mobile work */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* iOS: prevent zoom on input focus by ensuring 16px minimum on inputs */
+input,
+select,
+textarea {
+  font-size: 16px;
+  font-family: inherit;
+}
+
+/* Disable tap highlight on iOS, keep keyboard focus rings */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--fcc-orange);
+  outline-offset: 2px;
+}

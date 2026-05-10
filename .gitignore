@@ -21,16 +21,25 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Dependencies (if using npm/yarn in future)
+# Dependencies
 node_modules/
 bower_components/
+.pnpm-store/
 
-# Build output (if using build tools in future)
+# Build output
 dist/
 build/
+.output/
 *.min.js
 *.min.css
+
+# Cache
+.vite/
+.cache/
+.turbo/
+*.tsbuildinfo
 
 # Environment files
 .env
@@ -55,4 +64,9 @@ coverage/
 
 # Documentation build
 docs/_build/
+
+# Project-specific
 FCC_OLD_BACKUPS/
+
+# Cloudflare
+.wrangler/
