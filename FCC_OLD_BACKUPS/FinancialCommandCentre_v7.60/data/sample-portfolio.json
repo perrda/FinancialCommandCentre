@@ -1,0 +1,52 @@
+{
+  "name": "Sample Portfolio",
+  "version": "7.55",
+  "exported": "2024-01-15T12:00:00Z",
+  "crypto": [
+    {
+      "id": "bitcoin",
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "amount": 0.5,
+      "costBasis": 25000,
+      "purchaseDate": "2024-01-01"
+    },
+    {
+      "id": "ethereum",
+      "symbol": "ETH",
+      "name": "Ethereum",
+      "amount": 5,
+      "costBasis": 10000,
+      "purchaseDate": "2024-01-01"
+    }
+  ],
+  "equity": [
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "shares": 50,
+      "avgPrice": 180.00,
+      "purchaseDate": "2024-01-01"
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corp.",
+      "shares": 25,
+      "avgPrice": 375.00,
+      "purchaseDate": "2024-01-01"
+    }
+  ],
+  "liabilities": [
+    {
+      "name": "Mortgage",
+      "type": "mortgage",
+      "balance": 150000,
+      "interestRate": 4.5,
+      "monthlyPayment": 1200
+    }
+  ],
+  "settings": {
+    "currency": "GBP",
+    "theme": "dark"
+  }
+}

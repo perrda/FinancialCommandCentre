@@ -1,0 +1,60 @@
+name: Validate Code
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check js/app.js
+          node --check js/config.js
+          echo "✅ JavaScript syntax valid"
+
+      - name: Validate HTML structure
+        run: |
+          DIV_OPEN=$(grep -o "<div" index.html | wc -l)
+          DIV_CLOSE=$(grep -o "</div>" index.html | wc -l)
+          if [ "$DIV_OPEN" -eq "$DIV_CLOSE" ]; then
+            echo "✅ HTML divs balanced"
+          else
+            echo "❌ HTML divs imbalanced"
+            exit 1
+          fi
+
+      - name: Validate CSS braces
+        run: |
+          OPEN=$(grep -o "{" css/style.css | wc -l)
+          CLOSE=$(grep -o "}" css/style.css | wc -l)
+          if [ "$OPEN" -eq "$CLOSE" ]; then
+            echo "✅ CSS braces balanced ($OPEN)"
+          else
+            echo "❌ CSS braces imbalanced"
+            exit 1
+          fi
+
+      - name: Check version consistency
+        run: |
+          APP_VER=$(grep "VERSION:" js/app.js | head -1 | grep -oE "[0-9]+\.[0-9]+")
+          CONFIG_VER=$(grep "VERSION:" js/config.js | head -1 | grep -oE "[0-9]+\.[0-9]+")
+          HTML_VER=$(grep -oE "v[0-9]+\.[0-9]+" index.html | head -1 | sed 's/v//')
+          
+          if [ "$APP_VER" = "$CONFIG_VER" ] && [ "$APP_VER" = "$HTML_VER" ]; then
+            echo "✅ All versions match: $APP_VER"
+          else
+            echo "❌ Version mismatch detected"
+            exit 1
+          fi
